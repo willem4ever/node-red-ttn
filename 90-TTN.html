@@ -1,5 +1,5 @@
 <!--
-  Copyright 2014 IBM Corp.
+  Copyright 2015/2015 Willem Eradus.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@
    <!-- (with the 'node-input-' prefix).                                     -->
    <!-- The available icon classes are defined Font Awesome Icons (FA Icons) -->
     <div class="form-row">
-        <label for="node-input-topic"><i class="fa fa-tasks"></i> Key</label>
+        <label for="node-input-key"><i class="fa fa-key"></i> Key</label>
         <input type="text" id="node-input-key" placeholder="Key">
     </div>
 
@@ -45,15 +45,15 @@
 
 
 <!-- Next, some simple help text is provided for the node.                   -->
-<script type="text/x-red" data-help-name="sample">
+<script type="text/x-red" data-help-name="decrypt-ttn">
    <!-- data-help-name identifies the node type this help is for             -->
    <!-- This content appears in the Info sidebar when a node is selected     -->
    <!-- The first <p> is used as the pop-up tool tip when hovering over a    -->
    <!-- node in the palette.                                                 -->
-   <p>Simple sample input node. Just sends a single message when it starts up.
-   This is not very useful.</p>
-   <p>Outputs an object called <b>msg</b> containing <b>msg.topic</b> and
-   <b>msg.payload</b>. msg.payload is a String.</p>
+   <p>Works with MQTT published messages by looking at the msg.payload.rawData
+   and applying your own Application session key (AppSKey).</p>
+   <p>Outputs an object msg.decrypted - {"node": "02031901", "base64": "3q2+7wUGBw=="} or {"node": "02031901", "string": "Hello"}
+   </p>
 </script>
 
 <!-- Finally, the node type is registered along with all of its properties   -->
@@ -63,7 +63,7 @@
         category: 'input',      // the palette category
 		color:"#DEBD5C",
         defaults: {             // defines the editable properties of the node
-            name: {value:"My Key"},   //  along with default values.
+            name: {value:""},   //  along with default values.
             key: {value:"2B7E151628AED2A6ABF7158809CF4F3C", required:true}
         },
         inputs:1,               // set the number of inputs - only 0 or 1
@@ -71,7 +71,7 @@
         // set the icon (held in icons dir below where you save the node)
         icon: "arrow-in.png",     // saved in  icons/myicon.png
         label: function() {     // sets the default label contents
-            return this.name||this.key||"decrypt-ttn";
+            return this.name || "decrypt-ttn";
         },
         labelStyle: function() { // sets the class to apply to the label
             return this.name?"node_label_italic":"";

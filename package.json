@@ -1,0 +1,25 @@
+{
+    "name"          : "node-red-ttn",
+    "version"       : "0.0.1",
+    "description"   : "A Node-RED node to decrypt LoRaWAN messages using your own AppSkey",
+    "dependencies"  : {
+        "btoa"		: "1.1.2",
+		"crypto-js"	: "3.1.6"
+    },
+    "repository" : {
+        "type":"git",
+        "url":"https://github.com/willem4ever/node-red-ttn"
+    },
+    "license": "Apache-2.0",
+    "keywords": [ "node-red", "decrypt-ttn" ],
+    "node-red" : {
+        "nodes" : {
+            "decrypt-ttn": "90-TTN.js"
+        }
+    },
+    "author": {
+        "name": "Willem Eradus",
+        "email": "willem@automation-du.de",
+        "url": "https://github.com/willem4ever"
+    }
+}

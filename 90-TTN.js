@@ -20,7 +20,7 @@ module.exports = function(RED) {
 	var CryptoJS = require("crypto-js");
 	var btoa = require('btoa')
     // The main node definition - most things happen in here
-    function SampleNode(n) {
+    function TTNdecryptNode(n) {
         // Create a RED node
         RED.nodes.createNode(this,n);
         // Store local copies of the node configuration (as defined in the .html)
@@ -188,6 +188,6 @@ module.exports = function(RED) {
 
     // Register the node by name. This must be called before overriding any of the
     // Node functions.
-    RED.nodes.registerType("decrypt-ttn",SampleNode);
+    RED.nodes.registerType("decrypt-ttn",TTNdecryptNode);
 
 }
