@@ -10,6 +10,8 @@ npm install btoa
 
 copy 90-TTN.js and 90-TTN.html to node_modules/node-red/nodes/core/parsers/
 
+or npm install https://github.com/willem4ever/node-red-ttn 
+
 reload node-red the new node should appear as decrypt-ttn
 
 create a flow with mqtt listening at e.g. nodes/02031901/packets -> json -> decrypt-ttn -> debug (msg.decrypted) 
