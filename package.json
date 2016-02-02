@@ -1,5 +1,5 @@
 {
-    "name"          : "node-red-ttn",
+    "name"          : "node-red--contrib-ttn-decrypt",
     "version"       : "0.0.1",
     "description"   : "A Node-RED node to decrypt LoRaWAN messages using your own AppSkey",
     "dependencies"  : {
